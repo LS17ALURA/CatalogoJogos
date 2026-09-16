@@ -1,13 +1,13 @@
 # Projeto de Banco de Dados (C07 - 2026/2) - Catálogo de Jogos
 
 ## 👥 Integrantes
-* Lavínia Sandi
+* Lavinia Sandi
 * Vitória Cássia Bernardo Rodrigues
 
 ---
 
 ## 🎮 O Tema
-Escolhemos criar um sistema de **Catálogo de Jogos**. A ideia é conseguir gerenciar os jogos, quem desenvolveu, as plataformas em que eles rodam, os usuários cadastrados e as avaliações que a galera deixa.
+Escolhemos criar um sistema de **Catálogo de Jogos**. A ideia é conseguir gerenciar os jogos, quem desenvolveu, as plataformas em que eles rodam, os usuários cadastrados e as avaliações que os usuários deixam.
 
 ## 🗂️ Como o modelo foi organizado (Layers)
 Para o diagrama não ficar confuso, separamos o banco em 4 partes principais (*layers* no MySQL Workbench):
