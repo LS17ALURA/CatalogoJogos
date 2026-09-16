@@ -22,4 +22,4 @@ O diagrama foi estruturado e organizado utilizando **Layers (Camadas)** no MySQL
 ---
 
 ## 📁 Estrutura de Arquivos
-* `Catalogo_Jogos_BD.mwb`: Arquivo contendo o modelo de banco de dados completo desenvolvido no MySQL Workbench.
+* `Catalogo_Jogos_BD.mwb`: arquivo contendo o modelo de banco de dados completo desenvolvido no MySQL Workbench.
