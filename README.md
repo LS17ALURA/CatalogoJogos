@@ -1,4 +1,4 @@
-# Projeto de Banco de Dados - C07: Catálogo de Jogos
+# Projeto de Banco de Dados - C07: catálogo de jogos
 
 Trabalho prático da disciplina de Banco de Dados (2026/2) voltado para a modelagem conceitual/lógica de um sistema de catálogo e avaliação de jogos.
 
