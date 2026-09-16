@@ -1,25 +1,23 @@
-# Projeto de Banco de Dados - C07: catálogo de jogos
+# Projeto de Banco de Dados (C07 - 2026/2)
 
-Trabalho prático da disciplina de Banco de Dados (2026/2) voltado para a modelagem conceitual/lógica de um sistema de catálogo e avaliação de jogos.
-
-## 👥 Equipe
+## 👥 Integrantes
 * Lavínia Sandi
 * Vitória Cássia Bernardo Rodrigues
 
 ---
 
-## 🎮 Sobre o Tema e o Modelo
+## 🎮 O Tema
+A gente escolheu criar um sistema de **Catálogo de Jogos**. A ideia é conseguir gerenciar os jogos, quem desenvolveu, as plataformas em que eles rodam, os usuários cadastrados e as avaliações que a galera deixa.
 
-O sistema foi desenvolvido para gerenciar um **Catálogo de Jogos**, abrangendo informações sobre os títulos, estúdios desenvolvedores, plataformas suportadas, perfis de usuários e o sistema de avaliações.
+## 🗂️ Como o modelo foi organizado (Layers)
+Para o diagrama não ficar confuso, a gente separou o banco em 4 partes principais (*layers* no MySQL Workbench):
 
-O diagrama foi estruturado e organizado utilizando **Layers (Camadas)** no MySQL Workbench para melhor visualização e separação lógica dos contextos:
-
-1. **Perfis e Comunidade:** gerencia os dados dos usuários (`Pessoa`), contemplando herança/especialização para tipos específicos de perfis (`JogadorComum` e `CriadorConteudo`), além de um relacionamento recursivo (auto-relacionamento de mentoria na própria tabela de pessoas).
-2. **Catálogo de Jogos:** concentra as informações centrais dos jogos (`Jogo`) e faz a ligação com as plataformas através de uma tabela intermediária (`Jogo_Plataforma`) para atender à relação N:M.
-3. **Indústria e Produção:** contém os dados referentes aos desenvolvedores e estúdios (`Estudio`) responsáveis pelos títulos.
-4. **Avaliações:** gerencia as notas, comentários e recomendações deixadas pelos usuários em relação aos jogos cadastrados (`Avaliacao`).
+1. **Perfis e Comunidade:** guarda os dados das pessoas (`Pessoa`). A gente usou herança para separar em `JogadorComum` e `CriadorConteudo`, além de colocar um relacionamento recursivo (onde uma pessoa pode ser mentora de outra).
+2. **Catálogo de Jogos:** fica com os dados centrais do jogo (`Jogo`). Como um jogo roda em várias plataformas e uma plataforma tem vários jogos, a gente usou uma tabela intermediária (`Jogo_Plataforma`) para fazer essa ligação (relação N:M).
+3. **Indústria e Produção:** foca nos estúdios que criam os jogos (`Estudio`).
+4. **Avaliações:** armazena as notas, comentários e se o usuário recomenda ou não o jogo (`Avaliacao`).
 
 ---
 
-## 📁 Estrutura de Arquivos
-* `Catalogo_Jogos_BD.mwb`: arquivo contendo o modelo de banco de dados completo desenvolvido no MySQL Workbench.
+## 📁 Arquivos
+* `Catalogo_Jogos_BD.mwb`: Arquivo com a modelagem completa feita no MySQL Workbench.
