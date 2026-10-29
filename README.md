@@ -22,7 +22,7 @@ Para o diagrama não ficar confuso, separamos o banco em 4 partes principais (*l
 ## 📁 Arquivos
 * `Catalogo_Jogos_BD.mwb`: arquivo com a modelagem completa feita no MySQL Workbench.
 
-* ---
+ ---
 ## ⚙️ Implementação e Manipulação de Dados (DML)
 O banco foi populado com no mínimo 5 registros em cada tabela, garantindo o volume necessário para testes de consultas. Foram aplicados comandos extras para demonstrar a manutenção do catálogo:
 * **UPDATE:** Utilizado para atualizar o preço de um jogo específico (Baldurs Gate 3), simulando a aplicação de uma promoção temporária na plataforma.
