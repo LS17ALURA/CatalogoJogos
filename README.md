@@ -45,5 +45,3 @@ Para atender às necessidades de relatórios e automações do catálogo, desenv
 
 ## 📁 Arquivos do Projeto
 - `Catalogo_Jogos_BD.mwb`: Arquivo com a modelagem completa (Diagrama ER) feita no MySQL Workbench.
-- `Script_Estrutura_e_Dados.sql`: Script DDL para criação das tabelas e DML para inserção de dados e segurança (Parte 1).
-- `Script_Consultas_Objetos.sql`: Script com as buscas complexas, Views, Triggers, Functions e Procedures (Parte 2).
