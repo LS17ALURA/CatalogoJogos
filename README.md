@@ -44,7 +44,3 @@ Para a gestão do banco, implementamos controle de acesso baseado em funções (
 \## 📁 Arquivos do Projeto 
 - \`Catalogo\_Jogos\_BD.mwb\`: Arquivo com a modelagem completa (Diagrama ER) feita no MySQL Workbench.
 - - \`catalogo.sql\`: Script SQL completo contendo a DDL (criação das tabelas), DML (população e manutenção de dados), DCL (segurança, roles e usuários), consultas com JOINs e a implementação dos objetos (View, Function, Procedure e Trigger).
-
----
-## 📁 Arquivos do Projeto
-- `Catalogo_Jogos_BD.mwb`: Arquivo com a modelagem completa (Diagrama ER) feita no MySQL Workbench.
