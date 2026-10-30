@@ -1,8 +1,8 @@
 # Projeto de Banco de Dados (C07 - 2026/2) - Catálogo de Jogos
 
 ## 👥 Integrantes
-* Lavinia Sandi
-* Vitória Cássia Bernardo Rodrigues
+- Lavinia Sandi
+- Vitória Cássia Bernardo Rodrigues
 
 ---
 
@@ -19,27 +19,25 @@ Para o diagrama não ficar confuso, separamos o banco em 4 partes principais (*l
 
 ---
 
-## 📁 Arquivos
-* `Catalogo_Jogos_BD.mwb`: arquivo com a modelagem completa feita no MySQL Workbench.
-
- ---
 ## ⚙️ Implementação e Manipulação de Dados (DML)
 O banco foi populado com no mínimo 5 registros em cada tabela, garantindo o volume necessário para testes de consultas. Foram aplicados comandos extras para demonstrar a manutenção do catálogo:
-* **UPDATE:** Utilizado para atualizar o preço de um jogo específico (Baldurs Gate 3), simulando a aplicação de uma promoção temporária na plataforma.
-* **DELETE:** Utilizado para remover uma plataforma inserida de forma equivocada (Plataforma Teste), garantindo a integridade dos dados e evitando o acúmulo de registros sem vínculo.
+- **UPDATE:** Utilizado para atualizar o preço de um jogo específico (Baldurs Gate 3), simulando a aplicação de uma promoção temporária na plataforma.
+- **DELETE:** Utilizado para remover uma plataforma inserida de forma equivocada (Plataforma Teste), garantindo a integridade dos dados e evitando o acúmulo de registros sem vínculo.
 
 ## 🔐 Segurança e Acesso
 Para a gestão do banco, implementamos controle de acesso baseado em funções (RBAC):
-* Criamos a ROLE `admin_jogos`, que possui permissões totais de manipulação (SELECT, INSERT, UPDATE, DELETE) em todo o banco `Catalogo_Jogos`.
-* Foram criados os usuários `dev_vitoria` e `dev_lavinia`, ambos vinculados a esta ROLE como perfil padrão, garantindo que as duas desenvolvedoras tenham acesso seguro aos dados.
+- Criamos a ROLE `admin_jogos`, que possui permissões totais de manipulação (SELECT, INSERT, UPDATE, DELETE) em todo o banco `Catalogo_Jogos`.
+- Foram criados os usuários `dev_vitoria` e `dev_lavinia`, ambos vinculados a esta ROLE como perfil padrão, garantindo que as duas desenvolvedoras tenham acesso seguro aos dados.
 
-## 🧠 Consultas e Objetos de Banco (Lógica)
-Para atender às necessidades de relatórios e automações do catálogo, desenvolvemos:
-* **Consultas (JOINs):** [Lavínia: Explicar brevemente o que os JOINs de 1:1, 1:N e N:M estão buscando. Ex: "Busca os jogos e suas plataformas", etc.]
-* **View:** [Lavínia: Colocar o nome da View e justificar. Ex: "Criada para facilitar a visualização do catálogo completo com o nome dos estúdios."]
-* **Function:** [Lavínia: Colocar o nome e justificar. Ex: "Criada para calcular a média de notas de um jogo."]
-* **Procedure:** [Lavínia: Colocar o nome e justificar.]
-* **Trigger:** [Lavínia: Colocar o nome e justificar. Ex: "Dispara automaticamente um registro de log sempre que o preço de um jogo é alterado."]
+#### 🧠 Consultas e Objetos do Banco
+- **Consultas (JOINs):**
+  - **1:1 (Herança):** Junção entre `Pessoa` e `JogadorComum`.
+  - **1:N:** Busca dos jogos cadastrados de cada `Estudio`.
+  - **N:M:** Associação entre `Jogo` e `Plataforma` via `Jogo_Plataforma`.
+- **View (`vw_catalogo_completo`):** Exibe dados do jogo, estúdio e média de notas.
+- **Function (`fn_media_avaliacao_jogo`):** Retorna a média de avaliações de um jogo por ID.
+- **Procedure (`sp_cadastrar_avaliacao`):** Insere avaliações validando notas entre 0 e 10.
+- **Trigger (`trg_log_alteracao_preco`):** Registra o histórico de alterações de preço dos jogos.
 
 ---
 
