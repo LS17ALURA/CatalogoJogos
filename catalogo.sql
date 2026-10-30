@@ -253,21 +253,21 @@ USE Catalogo_Jogos;
 
 -- 1. TESTE DAS CONSULTAS COM JOINS
 -- A) Relacionamento 1:1 (Herança: Pessoa e JogadorComum)
-SELECT p.id_pessoa, p.nome, p.email, j.nickname, j.horas_jogadas
+SELECT p.idPessoa, p.nickname, p.email, j.horasJogadasTotais
 FROM Pessoa p
-INNER JOIN JogadorComum j ON p.id_pessoa = j.id_pessoa;
+INNER JOIN JogadorComum j ON p.idPessoa = j.Pessoa_idPessoa;
 
 -- B) Relacionamento 1:N (Estúdio e Jogos)
-SELECT e.nome AS estudio, e.pais, j.titulo AS jogo, j.genero, j.preco
+SELECT e.nomeEstudio AS estudio, e.paisOrigem, j.titulo AS jogo, j.preco
 FROM Estudio e
-INNER JOIN Jogo j ON e.id_estudio = j.id_estudio
-ORDER BY e.nome;
+INNER JOIN Jogo j ON e.idEstudio = j.Estudio_idEstudio
+ORDER BY e.nomeEstudio;
 
 -- C) Relacionamento N:M (Jogo e Plataforma via Jogo_Plataforma)
-SELECT j.titulo AS jogo, j.genero, p.nome AS plataforma, p.fabricante
+SELECT j.titulo AS jogo, p.nomePlataforma AS plataforma, p.fabricante
 FROM Jogo j
-INNER JOIN Jogo_Plataforma jp ON j.id_jogo = jp.id_jogo
-INNER JOIN Plataforma p ON jp.id_plataforma = p.id_plataforma
+INNER JOIN Jogo_Plataforma jp ON j.idJogo = jp.Jogo_idJogo
+INNER JOIN Plataforma p ON jp.Plataforma_idPlataforma = p.idPlataforma
 ORDER BY j.titulo;
 
 -- 2. TESTE DA VIEW (vw_catalogo_completo)
@@ -277,18 +277,18 @@ SELECT * FROM vw_catalogo_completo;
 SELECT fn_media_avaliacao_jogo(1) AS media_nota_jogo_1;
 
 -- 4. TESTE DA PROCEDURE (sp_cadastrar_avaliacao)
--- A) Inserção válida (Nota entre 0.0 e 10.0)
-CALL sp_cadastrar_avaliacao(1, 1, 9.5, 'Jogo excelente!', 1);
+-- A) Inserção válida (Nota entre 0 e 10)
+CALL sp_cadastrar_avaliacao(1, 1, 9, 'Jogo excelente!', 1);
 
 -- B) Verificação da nova inserção
-SELECT * FROM Avaliacao WHERE id_pessoa = 1 AND id_jogo = 1;
+SELECT * FROM Avaliacao WHERE Pessoa_idPessoa = 1 AND Jogo_idJogo = 1;
 
 -- C) Teste de validação de erro (Descomente a linha abaixo para testar a rejeição de nota > 10)
--- CALL sp_cadastrar_avaliacao(1, 1, 15.0, 'Nota inválida de teste', 1);
+-- CALL sp_cadastrar_avaliacao(1, 1, 15, 'Nota inválida de teste', 1);
 
 -- 5. TESTE DA TRIGGER (trg_log_alteracao_preco)
 -- A) Atualiza o preço do jogo 1 para disparar a Trigger
-UPDATE Jogo SET preco = 199.90 WHERE id_jogo = 1;
+UPDATE Jogo SET preco = 199.90 WHERE idJogo = 1;
 
 -- B) Consulta a tabela de auditoria para verificar a gravação automática do histórico
 SELECT * FROM Log_Preco_Jogo;
